@@ -1,8 +1,11 @@
 package ru.stqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.addressbook.model.ContactData;
 
 /**
@@ -24,7 +27,9 @@ public class ContactHelper extends HelperBase{
         type(By.name("address"),contactData.getAddress());
         type(By.name("mobile"),contactData.getPhone());
         type(By.name("email"),contactData.getMail());
-
+        if (isElementPresent(By.name("new group"))) {
+            new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
+        }
     }
 
 
