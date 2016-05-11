@@ -12,7 +12,7 @@ public class ContactModificationTest extends TestBase {
     public void testContactModification() {
 
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillContactForm(new ContactData("A", "G", "test address", "87654321", "a.g@rr.ru", null));
+        app.getContactHelper().fillContactForm(new ContactData("A", "G", "test address", "87654321", "a.g@rr.ru", null), false);
         app.getContactHelper().submitContactModification();
 
     }
